@@ -1,0 +1,27 @@
+/* Header.css */
+
+.header {
+  background: #4facfe;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header nav ul li a:hover {
+  text-decoration: underline;
+}
