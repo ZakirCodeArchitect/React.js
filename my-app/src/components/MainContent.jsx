@@ -1,32 +1,49 @@
-import 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Product from './Product.jsx';
-// import './MainContent.css';
+import './MainContent.css';
 
-function MainContent() {
-  const productList = [
-    {
-      id: 1,
-      name: 'Smartphone',
-      description: 'Iphone 15 pro max',
-      price: 25,
-      image: 'https://via.placeholder.com/250x150'
-    },
-    {
-      id: 1,
-      name: 'Laptop',
-      description: 'MacBook pro 2024',
-      price: 550,
-      image: 'https://via.placeholder.com/250x150'
-    }
-  ];
-
+function MainContent({ productList }) {
   return (
     <main className="main-content">
-      {/* <h2>Main Content Area</h2> */}
       <p>Welcome to our online store. Browse our products below:</p>
       <Product products={productList} />
     </main>
   );
 }
+
+MainContent.propTypes = {
+  productList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+      isOnSale: PropTypes.bool, // sale status for each product
+    })
+  ),
+};
+
+MainContent.defaultProps = {
+  productList: [
+    {
+      id: 1,
+      name: 'Dodo',
+      description: 'bird',
+      price: 200,
+      image: '/pic2.jpeg',
+      isOnSale: false, // initial sale status
+    },
+    {
+      id: 2,
+      name: 'Duck',
+      description: 'Big bird',
+      price: 250,
+      image: '/pic2.jpeg',
+      isOnSale: false, // initial sale status
+    },
+  ],
+};
 
 export default MainContent;

@@ -1,0 +1,15 @@
+- Props in React
+  - Short form of properties.
+  - read-only propety that are shared between components.
+  - A parent component can send data to a child component.
+
+  -> Default Props
+  -> condition rendering:
+     - array to control what needs to be rendered based on certain conditions.  
+
+  -> Click Event:
+     - an interaction when a user clicks on a specific element.
+     - resoinse to clicks by passing callbacks by the onclick button.
+
+    -> axios to connect Reactjs : to send backend to frontend.
+    -> cors  to frontend is hosted somehwere when backend request is done....
