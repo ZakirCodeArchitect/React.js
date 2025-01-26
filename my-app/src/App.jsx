@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <Header />
+      <Header title="Bird Store" main="Home" nav1="Categories" nav2="cart"/>
       <MainContent />
       <Footer />
     </div>

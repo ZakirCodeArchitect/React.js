@@ -2,6 +2,8 @@
   - Short form of properties.
   - read-only propety that are shared between components.
   - A parent component can send data to a child component.
+  - props are read-only, can't change them.
+  - propTypes are basically for data type checking.
 
   -> Default Props
   -> condition rendering:
@@ -13,3 +15,5 @@
 
     -> axios to connect Reactjs : to send backend to frontend.
     -> cors  to frontend is hosted somehwere when backend request is done....
+
+   
