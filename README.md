@@ -105,6 +105,7 @@ Here’s an overview of the **advanced React concepts** I have explored and cont
 - **Folder Structure** 🏗️: Organizing React app folders into components, hooks, services, utils, etc.
 - **Naming Conventions** ✍️: Following naming conventions to keep code easily understandable and maintainable.
 - **Modularization** 🔧: Dividing complex logic into smaller, manageable modules.
+- **Templates** : using templare structures.
 
 ## How to Use This Repository 🚀
 This repository is not a single project, but a collection of code snippets, exercises, and resources. You can browse through the folders for each topic or concept and view individual files that demonstrate those concepts. 
