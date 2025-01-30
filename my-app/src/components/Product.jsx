@@ -1,14 +1,36 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import './Product.css';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import "./Product.css";
 
 function Product({ products }) {
+  // State to track sale status and price for each product
+  const [productStates, setProductStates] = useState(
+    products.reduce((acc, product) => {
+      acc[product.id] = { 
+        isOnSale: product.isOnSale || false, 
+        price: product.price, 
+        originalPrice: product.price 
+      };
+      return acc;
+    }, {})
+  );
 
-  const [isToggled, setIsToggled] = useState(false);
+  // Event handler to toggle sale status and update price
+  const handleToggle = (id) => {
+    setProductStates((prevState) => {
+      const isCurrentlyOnSale = prevState[id].isOnSale;
 
-  // Event handler function
-  const handleToggle = () => {
-    setIsToggled((prev) => !prev); // Toggle the boolean value
+      return {
+        ...prevState,
+        [id]: {
+          ...prevState[id],
+          isOnSale: !isCurrentlyOnSale, // Toggle sale status
+          price: isCurrentlyOnSale
+            ? prevState[id].originalPrice // Restore original price
+            : prevState[id].originalPrice * 0.8, // Apply 20% discount
+        },
+      };
+    });
   };
 
   return (
@@ -19,14 +41,21 @@ function Product({ products }) {
             <img src={product.image} alt={`Image of ${product.name}`} />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <p className="product-price">${product.price.toFixed(2)}</p>
 
-            {/* Conditionally render the Sale badge if product is on sale */}
-            {product.isOnSale && <span className="sale-badge">On Sale!</span>}
+            {/* Show discounted price when on sale */}
+            <p className="product-price">
+              ${productStates[product.id].price.toFixed(2)}
+            </p>
 
-            {/* Sale Button to trigger the sale */}
-            <p>{isToggled ? "On Sale" : "Not on Sale"}</p>
-            <button onClick={handleToggle}>Sale</button>
+            {/* Show "On Sale" badge if applicable */}
+            {/* {productStates[product.id].isOnSale && (
+              <span className="sale-badge">On Sale!</span>
+            )} */}
+
+            {/* Toggle Button */}
+            <button onClick={() => handleToggle(product.id)}>
+              {productStates[product.id].isOnSale ? "On Sale!" : "Not on Sale"}
+            </button>
           </div>
         ))}
       </div>
@@ -42,13 +71,30 @@ Product.propTypes = {
       description: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
       image: PropTypes.string.isRequired,
-      isOnSale: PropTypes.bool, // Optional, used to check sale status
+      isOnSale: PropTypes.bool, // Optional
     })
   ).isRequired,
 };
 
 Product.defaultProps = {
-  products: [],
+  products: [
+    {
+      id: 1,
+      name: "Dodo",
+      description: "Bird",
+      price: 200,
+      image: "/pic2.jpeg",
+      isOnSale: false,
+    },
+    {
+      id: 2,
+      name: "Duck",
+      description: "Big bird",
+      price: 250,
+      image: "/pic2.jpeg",
+      isOnSale: false,
+    },
+  ],
 };
 
 export default Product;

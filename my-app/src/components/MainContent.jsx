@@ -1,9 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Product from './Product.jsx';
 import './MainContent.css';
 
-function MainContent({ productList }) {
+const productList = [
+  {
+    id: 1,
+    name: "Dodo",
+    description: "Large scary pigeon",
+    price: 1200,
+    image: "/pic2.jpeg",
+    isOnSale: true
+  },
+  {
+    id: 2,
+    name: "duck",
+    description: "cute scary long bird",
+    price: 200,
+    image: "/pic2.jpeg",
+    isOnSale: false
+  },
+]
+
+function MainContent() {
   return (
     <main className="main-content">
       <p>Welcome to our online store. Browse our products below:</p>
@@ -12,38 +30,5 @@ function MainContent({ productList }) {
   );
 }
 
-MainContent.propTypes = {
-  productList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      isOnSale: PropTypes.bool, // sale status for each product
-    })
-  ),
-};
-
-MainContent.defaultProps = {
-  productList: [
-    {
-      id: 1,
-      name: 'Dodo',
-      description: 'bird',
-      price: 200,
-      image: '/pic2.jpeg',
-      isOnSale: false, // initial sale status
-    },
-    {
-      id: 2,
-      name: 'Duck',
-      description: 'Big bird',
-      price: 250,
-      image: '/pic2.jpeg',
-      isOnSale: false, // initial sale status
-    },
-  ],
-};
 
 export default MainContent;

@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #83d63f;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/*Styles for the table*/
+table {
+  margin: 50px auto;
+  border-collapse: collapse;
+  width: 80%;
+  text-align: left;
+}
+th,
+td {
+  border: 1px solid #999;
+  padding: 10px;
+}
+th {
+  background-color: #dedede;
+}

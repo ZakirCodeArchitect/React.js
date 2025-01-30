@@ -1,0 +1,23 @@
+[
+  {
+    "seriesId": 1001,
+    "studentName": "John Doe",
+    "fatherName": "Michael Doe",
+    "studentRegNo": "REG-23456",
+    "batch": "Fall 2023"
+  },
+  {
+    "seriesId": 1002,
+    "studentName": "Jane Smith",
+    "fatherName": "Robert Smith",
+    "studentRegNo": "REG-23457",
+    "batch": "Spring 2024"
+  },
+  {
+    "seriesId": 1003,
+    "studentName": "Ahmad Ali",
+    "fatherName": "Abdullah",
+    "studentRegNo": "REG-23458",
+    "batch": "Spring 2024"
+  }
+]
